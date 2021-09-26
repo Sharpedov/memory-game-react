@@ -4,13 +4,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import GlobalStyle from "./styles/globalStyle";
 import { StyledEngineProvider } from "@mui/material/styles";
+import { Provider as ReduxProvider } from "react-redux";
+import store from "./store/store";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<StyledEngineProvider injectFirst>
-			<GlobalStyle />
-			<App />
-		</StyledEngineProvider>
+		<ReduxProvider store={store}>
+			<StyledEngineProvider injectFirst>
+				<GlobalStyle />
+				<App />
+			</StyledEngineProvider>
+		</ReduxProvider>
 	</React.StrictMode>,
 	document.getElementById("root")
 );
